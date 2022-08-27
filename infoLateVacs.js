@@ -1,6 +1,5 @@
 let localPage = document.location.href.slice(-10)
 if ( localPage == 'index.html'){
-    console.log('vai se foder')
     console.log(window.document.location.href)
     localStorage.clear()
 }
