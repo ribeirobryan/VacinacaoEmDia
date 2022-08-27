@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Vacinação em Dia</title>
+</head>
+<body>
+    <div class="wrapper">
+        <main>
+            <div class="info">
+                <h1>VACINAÇÃO EM DIA</h1>
+                <div class="info-second">
+                    <p><strong>INICIAR CONSULTA:</strong></p>
+                    <div class="info-dnascimento">
+                        <label for="info-inpnascimento">DATA DE NASCIMENTO:</label>
+                        <input type="date" name="info-inpnascimento" id="info-inpnascimento">
+                    </div>
+                    <div class="info-sexo">
+                        <label for="info-inpsexo"> SEXO:</label>
+                        <input type="radio" name="info-inpsexo" id="info-inpsexo1">
+                        <label for="info-inpsexo1">MASCULINO</label>
+                        <input type="radio" name="info-inpsexo" id="info-inpsexo2">
+                        <label for="info-inpsexo2">FEMININO</label>
+                    </div>
+                    <div class="info-submit">
+                        <button id="submit-btn" type="submit">ENVIAR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="main-pic">&nbsp;</div>
+        </main>
+        <footer>
+            <a href="page2.html"><button class="nav-btn tonextpage">AVANÇAR</button></a>
+        </footer>
+    </div>
+    <script type="module" src="modal.js"></script>
+    <script src="info.js"></script>
+    <script src="infoLateVacs.js"></script>
+</body>
+</html>

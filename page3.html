@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="vacDisplayClasses.css">
+    <title>Vacinação em Dia</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="info-header">
+            <div class="display dnascimento-display">
+                <p>IDADE:</p>
+                <p>X ANOS, XX MESES E XX DIAS</p>
+            </div>
+            <div class="display sexo-display">
+                <p>SEXO:</p>
+                <p>X</p>
+            </div>
+        </header>
+        <main id="page3">
+            <div class="vac-feitas">
+                <h1>VACINAS EM DIA:</h1>
+                <p id="ved">&nbsp;</p>
+            </div>
+            <div class="vac-naofeitas">
+                <h1>VACINAS POR FAZER:</h1>
+                <p id="vnf">&nbsp;</p>
+            </div>
+            <div class="vac-perdida">
+                <h1>VACINAS PERDIDAS:</h1>
+                <p id="vpd">&nbsp;</p>
+            </div>
+            <button class="subbtn" id="vacFormSubmit2">Enviar</button>
+        </main>
+        <footer>
+            <a href="page2.html"><button class="nav-btn topreviouspage">VOLTAR</button></a>
+        </footer>
+    </div>
+    <script type="module" src="modal.js"></script>
+    <script src="info.js"></script>
+    <script src="infoLateVacs.js"></script>
+    <script src="infoPage3.js"></script>
+</body>
+</html>
