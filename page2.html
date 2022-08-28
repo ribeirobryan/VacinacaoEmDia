@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="modal.css">
-    <link rel="stylesheet" href="vacDisplayClasses.css">
     <title>Vacinação em Dia</title>
 </head>
 <body>
@@ -31,13 +30,13 @@
                     <abbr title="Bacilo de Calmette-Guérin">
                         <p id="vacBcg" class="vacTitle">BCG:</p> 
                     </abbr>
-                    <span><input type="radio" name="bcg" id="bcgnd">NENHUMA DOSE</input></span>
+                    <span><input type="radio" name="bcg" id="bcgnd" required>NENHUMA DOSE</input></span>
                     <span><input type="radio" name="bcg" id="bcgdu">DOSE ÚNICA</input></span>
                 </div>
                 <div class="vacItem"> <!-- Hepatite B-->
                     <p class="vacTitle">HEPATITE B:</p>
                     <span><input type="radio" name="hepatiteb" id="hepatitebnd">NENHUMA DOSE</input></span>
-                    <span><input type="radio" name="hepatiteb" id="hepatitebd1">DOSE ÚNICA</input></span>
+                    <span><input type="radio" name="hepatiteb" id="hepatitebdu">DOSE ÚNICA</input></span>
                 </div>
                 <div class="vacItem"> <!-- Pentavalente -->
                     <abbr title="Vacina Inativada contra Difteria, Tétano, Coqueluche, Meningite por Hib (bactéria Haemophilus influenzae tipo b) e hepatite B.">
@@ -47,6 +46,9 @@
                     <span><input type="radio" name="pentavalente" id="pvd1">DOSE 1</input></span>
                     <span><input type="radio" name="pentavalente" id="pvd2">DOSE 2</input></span>
                     <span><input type="radio" name="pentavalente" id="pvd3">DOSE 3</input></span>
+                    <div id="datePentaSpan" class="active"><p>DATA DA ULTIMA DOSE:</p><input type="date" id="datePenta" required>
+                    <button id="pentaButton">ENVIAR</button>
+                    </div>
                 </div>
                 <div class="vacItem"> <!-- DTP-->
                     <abbr title="Vacina contra Difteria, Tétano, Pertussis e infecções graves pelo Haemophilus Influenzae Tipo B">
