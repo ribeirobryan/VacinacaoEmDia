@@ -11,26 +11,34 @@
     <div class="wrapper">
         <main>
             <div class="info">
-                <h1>VACINAÇÃO EM DIA</h1>
                 <div class="info-second">
-                    <p><strong>INICIAR CONSULTA:</strong></p>
-                    <div class="info-dnascimento">
-                        <label for="info-inpnascimento">DATA DE NASCIMENTO:</label>
-                        <input type="date" name="info-inpnascimento" id="info-inpnascimento">
+                    <div id="description">
+                        <h1>VACINAÇÃO EM DIA</h1>
+                        <p>Seja bem-vindo ao projeto Vacinação em Dia criado pela enfermeira Michele Kroll Bujes.</p>
                     </div>
-                    <div class="info-sexo">
-                        <label for="info-inpsexo"> SEXO:</label>
-                        <input type="radio" name="info-inpsexo" id="info-inpsexo1">
-                        <label for="info-inpsexo1">MASCULINO</label>
-                        <input type="radio" name="info-inpsexo" id="info-inpsexo2">
-                        <label for="info-inpsexo2">FEMININO</label>
-                    </div>
-                    <div class="info-submit">
-                        <button id="submit-btn" type="submit">ENVIAR</button>
+                    <div id="inputs">
+                        <h2><strong>INICIAR CONSULTA</strong></h2>
+                        <div class="info-dnascimento">
+                            <p>DATA DE NASCIMENTO</p>
+                            <input type="date" name="info-inpnascimento" id="info-inpnascimento">
+                        </div>
+                        <div class="info-sexo">
+                            <p>SEXO</p>
+                            <div class="infoSexoItem">
+                                <input type="radio" name="info-inpsexo" id="info-inpsexo1">
+                                <p>MASCULINO</p>
+                            </div>
+                            <div class="infoSexoItem">
+                                <input type="radio" name="info-inpsexo" id="info-inpsexo2">
+                                <p>FEMININO</p>
+                            </div>
+                        </div>
+                        <div class="info-submit">
+                            <button id="submit-btn" type="submit">ENVIAR</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="main-pic">&nbsp;</div>
         </main>
         <footer>
             <a href="page2.html"><button class="nav-btn tonextpage">AVANÇAR</button></a>
