@@ -57,21 +57,42 @@
                     <abbr title="Vacina contra Difteria, Tétano, Pertussis e infecções graves pelo Haemophilus Influenzae Tipo B">
                         <p class="vacTitle">DTP:</p>
                     </abbr>
+                    <span><input type="radio" name="dtp" id="dtpnd">NENHUMA DOSE</input></span>
                     <span><input type="radio" name="dtp" id="dtpd1">DOSE 1</input></span>
                     <span><input type="radio" name="dtp" id="dtpd2">DOSE 2</input></span>
+                    <div id="dateDtpSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateDtp" required>
+                            <button id="dtpButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="vacItem"> <!-- VIP-->
                     <abbr title="Vacina Inativada para Poliomielite">
                         <p class="vacTitle">VIP:</p>
                     </abbr>
+                    <span><input type="radio" name="vip" id="vipnd">NENHUMA DOSE</input></span>
                     <span><input type="radio" name="vip" id="vipd1">DOSE 1</input></span>
                     <span><input type="radio" name="vip" id="vipd2">DOSE 2</input></span>
                     <span><input type="radio" name="vip" id="vipd3">DOSE 3</input></span>
+                    <div id="dateVipSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateVip">
+                            <button id="vipButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="vacItem"><!-- VOP-->
                     <abbr title="Vacina Oral para Poliomielite"><p class="vacTitle">VOP:</p></abbr>
+                    <span><input type="radio" name="vop" id="vopnd">NENHUMA DOSE</input></span>
                     <span><input type="radio" name="vop" id="vopd1">REFORÇO 1</input></span>
                     <span><input type="radio" name="vop" id="vopd2">REFORÇO 2</input></span>
+                    <div id="dateVopSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateVop">
+                            <button id="vopButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="vacItem"><!-- Hepatite B reforço-->
                     <abbr title="">
