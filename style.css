@@ -152,17 +152,18 @@ main{
     align-items: center;
     gap: 15px;
 }
-#datePenta, #dateDtp, #dateVip, #dateVop
+#datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv
 {
     height: 20px;
     width: 150px;
     border-radius: 10px;
     text-align: center;
 }
-#datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover{
+#datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover, #dateHpv:hover
+{
     transform: none;
 }
-#pentaButton, #dtpButton, #vipButton, #vopButton
+#pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton
 {
         height: 20px;
         width: 100px;
@@ -173,7 +174,7 @@ main{
         border: none;
         background:rgba(var(--secondColor),0.60);
 }
-#pentaButton:hover, #dtpButton:hover, #vipButton:hover, #vopButton:hover
+#pentaButton:hover, #dtpButton:hover, #vipButton:hover, #vopButton:hover, #hpvButton:hover
 {
         background-color: rgba(var(--secondColor),0.2);
         cursor: pointer;

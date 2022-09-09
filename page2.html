@@ -110,6 +110,12 @@
                     <span><input type="radio" name="rotavirus" id="rotavirusnd"></input>NENHUMA DOSE</span>
                     <span><input type="radio" name="rotavirus" id="rotavirusd1"></input>DOSE 1</span>
                     <span><input type="radio" name="rotavirus" id="rotavirusd2"></input>DOSE 2</span>
+                    <div id="dateRotaSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateRota">
+                            <button id="rotaButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="vacItem"><!-- Pneumo 10 -->
                     <abbr title="Vacina pneumocócica conjugada 10-valente (VPC10)">
@@ -176,7 +182,7 @@
                     <span><input type="radio" name="febreamarela" id="febreamarelad2">DOSE 2</span>
                 </div>
                 <div class="vacItem"><!--Hepatite A-->
-                    <abbr title="Vacina meningocócica conjugada quadrivalente - ACWY">
+                    <abbr title="Vacina Hepatite A">
                         <p class="vacTitle">HEPATITE A:</p>
                     </abbr>
                     <span><input type="radio" name="hepatitea" id="hepatiteand">NENHUMA DOSE</span>
@@ -184,19 +190,17 @@
                 </div>
                 <div class="vacItem"><!-- HPV MENINOS -->
                     <abbr title="Vacina contra o Vírus do Papiloma Humano">
-                        <p class="vacTitle">HPV MENINOS:</p>
+                        <p class="vacTitle">HPV:</p>
                     </abbr>
-                    <span><input type="radio" name="hpvo" id="hpvond">NENHUMA DOSE</span>
-                    <span><input type="radio" name="hpvo" id="hpvod1">DOSE 1</span>
-                    <span><input type="radio" name="hpvo" id="hpvod2">DOSE 2</span>
-                </div>
-                <div class="vacItem"><!-- HPV MENINAS -->
-                    <abbr title="Vacina contra o Vírus do Papiloma Humano">
-                        <p class="vacTitle">HPV MENINAS:</p>
-                    </abbr>
-                    <span><input type="radio" name="hpva" id="hpvand">NENHUMA DOSE</span>
-                    <span><input type="radio" name="hpva" id="hpvad1">DOSE 1</span>
-                    <span><input type="radio" name="hpva" id="hpvad2">DOSE 2</span>
+                    <span><input type="radio" name="hpv" id="hpvnd">NENHUMA DOSE</span>
+                    <span><input type="radio" name="hpv" id="hpvd1">DOSE 1</span>
+                    <span><input type="radio" name="hpv" id="hpvd2">DOSE 2</span>
+                    <div id="dateHpvSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateHpv">
+                            <button id="hpvButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="btnDiv">
                     <button class="subbtn" id="vacFormSubmit" type="submit">Enviar</button>

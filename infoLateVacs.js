@@ -4,6 +4,7 @@ if ( localPage == 'index.html'){
 }
 
 let idadePaciente = localStorage.getItem("storNumberOfDays")
+let sexoPaciente = localStorage.getItem("storSexo")
 let dateNow = new Date()
 //bcg
 let bcgTest = false
@@ -257,6 +258,202 @@ document.getElementsByName('vop').forEach(inpvop =>{
     })
 })
 
+let dateRotaSpan = document.getElementById('dateRotaSpan')
+let dateRota = document.getElementById('dateRota')
+let rotaButton = document.getElementById('rotaButton')
+let lastDosedifRota
+let rotaDateLastDose
+let rotaTest = false
+let rotaAux = 0
+
+document.getElementsByName('rotavirus').forEach(inprota =>{
+    inprota.addEventListener('change', inprotaTest =>{
+        rotaButton.addEventListener('click', rotaSubmit=>{
+            rotaDateLastDose = new Date(dateRota.value)
+            lastDosedifRota = ((dateNow - rotaDateLastDose)/(1000*3600*24))
+            console.log((dateNow - rotaDateLastDose)/(1000*3600*24))
+            if (isNaN(rotaDateLastDose) == false){
+                dateRota.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateRota.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+        switch (inprota.id) {
+            case "rotavirusd2":
+                console.log("dose 2")
+                rotaTest = 1
+                dateRotaSpan.classList.add('active')
+                rotaAux = 0
+                break;
+            case "rotavirusd1":
+                console.log("dose 1")
+                if (idadePaciente < 122) {
+                    hpvTest = 1
+                    dateHpvSpan.classList.add("active")
+                    hpvAux = 0
+                } else if (idadePaciente >= 122 && idadePaciente <= 242) {
+                    hpvTest = 4
+                    dateHpvSpan.classList.remove("active")
+                    hpvAux = 1
+                } else if (idadePaciente > 242) {
+                    hpvTest = 3
+                    dateHpvSpan.classList.add("active")
+                    hpvAux = 0
+                }
+                break;
+            case "rotavirusnd":
+                console.log("nenhuma dose")
+                dateHpvSpan.classList.add('active')
+                hpvAux = 0
+                if (idadePaciente < 61){
+                    hpvTest = 1
+                } else if (idadePaciente >= 61 && idadePaciente <= 106) {
+                    hpvTest = 2
+                } else if (idadePaciente > 106) {
+                    hpvTest = 3
+                }
+                break;    
+        }
+    } )
+} )
+
+
+// meningo acwy
+
+let meningoacwyTest = false
+document.getElementsByName('meningoacwy').forEach(inpacwy =>{
+    inpacwy.addEventListener('change', inpcawyTest =>{
+        switch (inpacwy.id) {
+            case 'meningoacwydu':
+                meningoacwyTest = 1 // vacina em dia
+                break;
+            case 'meningoacwynd':
+                if (idadePaciente < 4018){
+                    meningoacwyTest = 1
+                    console.log('1')
+                } else if (idadePaciente >= 4018 && idadePaciente <= 4747){
+                    meningoacwyTest = 2
+                    console.log('2')
+                } else if (idadePaciente > 4747){
+                    meningoacwyTest = 3
+                    console.log('3')
+                }
+                break;    
+        }
+    } )
+} )
+
+
+// hepatite a
+
+let hepatiteaTest = false
+document.getElementsByName('hepatitea').forEach(inphepatitea =>{
+    inphepatitea.addEventListener('change', inphepatiteaTest =>{
+        switch (inphepatitea.id) {
+            case 'hepatiteadu':
+                hepatiteaTest = 1 // vacina em dia
+                break;
+            case 'hepatiteand':
+                if (idadePaciente < 457){
+                    hpvTest = 1
+                } else if (idadePaciente >= 457 && idadePaciente <= 1825){
+                    hpvTest = 2
+                } else if (idadePaciente > 1825){
+                    hpvTest = 3
+                }
+                break;    
+        }
+    } )
+} )
+
+
+// hpv 
+
+
+let dateHpvSpan = document.getElementById('dateHpvSpan')
+let dateHpv = document.getElementById('dateHpv')
+let hpvButton = document.getElementById('hpvButton')
+let lastDosedifHpv
+let hpvDateLastDose
+let hpvTest = false
+let hpvAux = 0
+
+document.getElementsByName('hpv').forEach(inphpv =>{
+    inphpv.addEventListener('change', inphpvTest =>{
+        hpvButton.addEventListener('click', hpvSubmit=>{
+            hpvDateLastDose = new Date(dateHpv.value)
+            lastDosedifHpv = ((dateNow - hpvDateLastDose)/(1000*3600*24))
+            console.log((dateNow - hpvDateLastDose)/(1000*3600*24))
+            if (isNaN(hpvDateLastDose) == false){
+                dateHpv.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateHpv.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+        switch (inphpv.id) {
+            case "hpvd2":
+                console.log("dose 2")
+                hpvTest = 1
+                dateHpvSpan.classList.add('active')
+                hpvAux = 0
+                break;
+            case "hpvd1":
+                console.log("dose 1")
+                if (sexoPaciente == "MASCULINO") {
+                    console.log("m")
+                    if (idadePaciente < 3287) {
+                        hpvTest = false
+                        alert("Inválido")
+                        inphpv.checked = false
+                    } else if (idadePaciente >= 3287) {
+                        hpvTest = 4
+                        dateHpvSpan.classList.remove("active")
+                        hpvAux = 1
+                    }
+                } else if (sexoPaciente == "FEMININO") {
+                    console.log("f")
+                    if (idadePaciente < 4018) {
+                        hpvTest = false
+                        alert("Inválido")
+                        inphpv.checked = false
+                    } else if (idadePaciente >= 4018) {
+                        hpvTest = 4
+                        dateHpvSpan.classList.remove("active")
+                        hpvAux = 1
+                    }
+                }
+                break;
+            case "hpvnd":
+                console.log("nenhuma dose")
+                dateHpvSpan.classList.add('active')
+                hpvAux = 0
+                if (sexoPaciente == "MASCULINO") {
+                    if (idadePaciente < 3287){
+                        hpvTest = 1
+                    } else if (idadePaciente >= 3287 && idadePaciente <= 5477) {
+                        hpvTest = 2
+                    } else if (idadePaciente > 5477) {
+                        hpvTest = 3
+                    }
+                } else if (sexoPaciente == "FEMININO") {
+                    console.log("f")
+                    if (idadePaciente < 4018){
+                        hpvTest = 1
+                    } else if (idadePaciente >= 4018 && idadePaciente <= 5477) {
+                        hpvTest = 2
+                    } else if (idadePaciente > 5477) {
+                        hpvTest = 3
+                    }
+                }
+                break;    
+        }
+    } )
+} )
+
 //button read
 let buttonSub = document.getElementById('vacFormSubmit')
 
@@ -402,6 +599,88 @@ buttonSub.addEventListener('click', submitButton =>{
             vacPorFazerDisplay.push('VOP')
         } else if (vopDateLastDoseDif <= 183) {
             vacEmDiaDisplay.push('VOP')
+        }
+    }
+
+    //rotavirus teste
+
+    if(rotaAux == 1){
+        if (isNaN(rotaDateLastDose) == true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (rotaTest == false){
+        alert('Vacina  é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (rotaTest == 1){
+        vacEmDiaDisplay.push('ROTAVÍRUS')
+    } else if (rotaTest == 2){
+        vacPorFazerDisplay.push('ROTAVÍRUS')
+    } else if (rotaTest == 3){
+        vacPerdidaDisplay.push('ROTAVÍRUS')
+    } else if (rotaTest == 4){
+        if(lastDosedifRota > 122){
+            vacPorFazerDisplay.push('ROTAVÍRUS')
+        } else if (lastDosedifRota <= 122) {
+            vacEmDiaDisplay.push('ROTAVÍRUS')
+        }
+    }
+
+    // meningo acwy
+
+    if (meningoacwyTest == false){
+        alert('Vacina MENINGO ACWY é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (meningoacwyTest == 1){
+        vacEmDiaDisplay.push('MENINGO ACWY')
+    } else if (meningoacwyTest == 2){
+        vacPorFazerDisplay.push('MENINGO ACWY')
+    } else if (meningoacwyTest == 3){
+        vacPerdidaDisplay.push('MENINGO ACWY')
+    }
+
+    
+    //hepatite a test
+
+    if (hepatiteaTest == false){
+        alert('Vacina HEPATITE A é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (hepatiteaTest == 1){
+        vacEmDiaDisplay.push('HEPATITE A')
+    } else if (hepatiteaTest == 2){
+        vacPorFazerDisplay.push('HEPATITE A')
+    } else if (hepatiteaTest == 3){
+        vacPerdidaDisplay.push('HEPATITE A')
+    }
+
+
+    // hpv test 
+
+    if(hpvAux == 1){
+        if (isNaN(hpvDateLastDose) == true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (hpvTest == false){
+        alert('Vacina HPV é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (hpvTest == 1){
+        vacEmDiaDisplay.push('HPV')
+    } else if (hpvTest == 2){
+        vacPorFazerDisplay.push('HPV')
+    } else if (hpvTest == 3){
+        vacPerdidaDisplay.push('HPV')
+    } else if (hpvTest == 4){
+        if(lastDosedifHpv > 183){
+            vacPorFazerDisplay.push('HPV')
+        } else if (lastDosedifHpv <= 183) {
+            vacEmDiaDisplay.push('HPV')
         }
     }
 
