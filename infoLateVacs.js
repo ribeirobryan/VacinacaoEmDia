@@ -1,6 +1,9 @@
 let localPage = document.location.href.slice(-10)//test if its in the index page, if so it clears the localStorage
 if ( localPage == 'index.html'){
     localStorage.clear()
+    /*alert('Versão Pré-Alpha')
+    alert('Esta página está atualmente em fase de desenvolvimento e não substitui (e nunca substituirá) o auxilio de um profissional')
+    */
 }
 
 let idadePaciente = localStorage.getItem("storNumberOfDays")
@@ -320,6 +323,172 @@ document.getElementsByName('rotavirus').forEach(inprota =>{
 } )
 
 
+//pneumo 10
+
+let datePneumoSpan = document.getElementById('datePneumoSpan')
+let datePneumo = document.getElementById('datePneumo')
+let pneumoButton = document.getElementById('pneumoButton')
+let lastDosedifPneumo
+let pneumoDateLastDose
+let pneumoTest = false
+let pneumoAux = 0
+
+document.getElementsByName('pneumo10').forEach(inppneumo =>{
+    inppneumo.addEventListener('change', inppneumoTest =>{
+        pneumoButton.addEventListener('click', pneumoSubmit=>{
+            pneumoDateLastDose = new Date(datePneumo.value)
+            lastDosedifPneumo = ((dateNow - pneumoDateLastDose)/(1000*3600*24))
+            console.log((dateNow - pneumoDateLastDose)/(1000*3600*24))
+            if (isNaN(pneumoDateLastDose) == false){
+                datePneumo.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                datePneumo.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+        switch (inppneumo.id) {
+            case 'pneumo10r':
+                pneumoTest = 1
+                datePneumoSpan.classList.add('active')
+                pneumoAux = 0
+                break;    
+            case 'pneumo10d3':
+                if (idadePaciente > 1825){
+                    pneumoTest = 3
+                    datePneumoSpan.classList.add('active')
+                    pneumoAux = 0
+                } else if (idadePaciente <= 1825 && idadePaciente >= 365){
+                    pneumoTest = 4
+                    datePneumoSpan.classList.remove('active')
+                    pneumoAux = 1
+                } else if (idadePaciente < 365){
+                    pneumoTest = 1
+                    datePneumoSpan.classList.add('active')
+                    pneumoAux = 0
+                }
+                break;
+            case 'pneumo10d2':
+                if (idadePaciente >= 365){
+                    pneumoTest = 3
+                    datePneumoSpan.classList.add('active')
+                    pneumoAux = 0
+                } else if (idadePaciente < 365 && idadePaciente >= 183){
+                    pneumoTest = 4
+                    datePneumoSpan.classList.remove('active')
+                    pneumoAux = 1
+                } else if (idadePaciente < 183){
+                    pneumoTest = 1
+                    datePneumoSpan.classList.add('active')
+                    pneumoAux = 0
+                }
+                break;    
+            case 'pneumo10d1':
+                if (idadePaciente >= 365){
+                    pneumoTest = 3
+                    datePneumoSpan.classList.add('active')
+                    pneumoAux = 0
+                } else if (idadePaciente < 365 && idadePaciente >= 122){
+                    pneumoTest = 4
+                    datePneumoSpan.classList.remove('active')
+                    pneumoAux = 1
+                } else if (idadePaciente < 122){
+                    pneumoTest = 1
+                    datePneumoSpan.classList.add('active')
+                    pneumoAux = 0
+                }
+                break;    
+            case 'pneumo10nd':
+                datePneumoSpan.classList.add('active')
+                pneumoAux = 0
+            if (idadePaciente >= 365){
+                pneumoTest = 3
+            } else if (idadePaciente < 365 && idadePaciente >= 61){
+                pneumoTest = 2
+            } else if (idadePaciente < 61){
+                pneumoTest = 1
+            }
+                break;    
+                                    
+        }
+    } )
+} )
+
+// meningo c 
+
+let dateMeningoSpan = document.getElementById('dateMeningoSpan')
+let dateMeningo = document.getElementById('dateMeningo')
+let meningoButton = document.getElementById('meningoButton')
+let lastDosedifMeningo
+let meningoDateLastDose
+let meningoTest = false
+let meningoAux = 0
+document.getElementsByName('meningoc').forEach(inpmeningo =>{
+    inpmeningo.addEventListener('change', inpmeningoTest =>{
+        meningoButton.addEventListener('click', meningoSubmit=>{
+            meningoDateLastDose = new Date(dateMeningo.value)
+            lastDosedifMeningo = ((dateNow - meningoDateLastDose)/(1000*3600*24))
+            console.log((dateNow - meningoDateLastDose)/(1000*3600*24))
+            if (isNaN(meningoDateLastDose) == false){
+                dateMeningo.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateMeningo.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+        switch (inpmeningo.id) {
+            case 'meningocr':
+                meningoTest = 1
+                dateMeningoSpan.classList.add('active')
+                meningoAux = 0
+                break;    
+            case 'meningocd2':
+                if (idadePaciente >= 365){
+                    meningoTest = 3
+                    dateMeningoSpan.classList.add('active')
+                    meningoAux = 0
+                } else if (idadePaciente < 365 && idadePaciente >= 183){
+                    meningoTest = 4
+                    dateMeningoSpan.classList.remove('active')
+                    meningoAux = 1
+                } else if (idadePaciente < 183){
+                    meningoTest = 1
+                    dateMeningoSpan.classList.add('active')
+                    meningoAux = 0
+                }
+                break;    
+            case 'meningocd1':
+                if (idadePaciente >= 365){
+                    meningoTest = 3
+                    dateMeningoSpan.classList.add('active')
+                    meningoAux = 0
+                } else if (idadePaciente < 365 && idadePaciente >= 122){
+                    meningoTest = 4
+                    dateMeningoSpan.classList.remove('active')
+                    meningoAux = 1
+                } else if (idadePaciente < 122){
+                    meningoTest = 1
+                    dateMeningoSpan.classList.add('active')
+                    meningoAux = 0
+                }
+                break;    
+            case 'meningocnd':
+                dateMeningoSpan.classList.add('active')
+                meningoAux = 0
+            if (idadePaciente >= 365){
+                meningoTest = 3
+            } else if (idadePaciente < 365 && idadePaciente >= 61){
+                meningoTest = 2
+            } else if (idadePaciente < 61){
+                meningoTest = 1
+            }
+                break;    
+                                    
+        }
+    } )
+} )
+
 // meningo acwy
 
 let meningoacwyTest = false
@@ -345,6 +514,66 @@ document.getElementsByName('meningoacwy').forEach(inpacwy =>{
     } )
 } )
 
+// febre amarela // em desenvolvimento
+
+let dateFebreASpan = document.getElementById('dateFebreAmarelaSpan')
+let dateFebreA = document.getElementById('dateFebreAmarela')
+let febreAButton = document.getElementById('febreAmarelaButton')
+let lastDosedifFebreA
+let febreADateLastDose
+let febreATest = false
+let febreAAux = 0
+document.getElementsByName('febreamarela').forEach(inpfebrea =>{
+    inpfebrea.addEventListener('change', inpfebreaTest =>{
+        febreAButton.addEventListener('click', febreaSubmit=>{
+            febreADateLastDose = new Date(dateFebreA.value)
+            lastDosedifFebreA = ((dateNow - febreADateLastDose)/(1000*3600*24))
+            console.log((dateNow - febreADateLastDose)/(1000*3600*24))
+            if (isNaN(febreADateLastDose) == false){
+                dateFebreA.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateFebreA.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+        switch (inpfebrea.id) {  
+            case 'febreamarelad2':
+                febreATest = 1
+                dateFebreASpan.classList.add('active')
+                febreAAux = 0
+                break;    
+            case 'febreamarelad1':
+                if (idadePaciente <= 1461){
+                    febreATest = 1
+                    dateFebreASpan.classList.add('active')
+                    febreAAux = 0
+                } else if (idadePaciente > 1461 && idadePaciente < 1825){
+                    febreATest = 4
+                    dateFebreASpan.classList.remove('active')
+                    febreAAux = 1
+                } else if (idadePaciente >= 1825 && idadePaciente < 21915){
+                    console.log('em desenvolvimento')
+                    //ainda falta coisa
+                } else if (idadePaciente >= 21915){
+
+                }
+                break;    
+            case 'febreamareland':
+                dateMeningoSpan.classList.add('active')
+                meningoAux = 0
+            if (idadePaciente >= 365){
+                meningoTest = 3
+            } else if (idadePaciente < 365 && idadePaciente >= 61){
+                meningoTest = 2
+            } else if (idadePaciente < 61){
+                meningoTest = 1
+            }
+                break;    
+                                    
+        }
+    } )
+} )
 
 // hepatite a
 
@@ -627,6 +856,56 @@ buttonSub.addEventListener('click', submitButton =>{
             vacEmDiaDisplay.push('ROTAVÍRUS')
         }
     }
+
+    // pneumo10 test
+
+    if(pneumoAux == 1){
+        if (isNaN(pneumoDateLastDose) == true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (pneumoTest == false){
+        alert('Vacina Pneumo10 é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (pneumoTest == 1){
+        vacEmDiaDisplay.push('PNEUMO 10')
+    } else if (pneumoTest == 2){
+        vacPorFazerDisplay.push('PNEUMO 10')
+    } else if (pneumoTest == 3){
+        vacPerdidaDisplay.push('PNEUMO 10')
+    } else if (pneumoTest == 4){
+        if(lastDosedifPneumo >= 61){
+            vacPorFazerDisplay.push('PNEUMO 10')
+        } else if (lastDosedifPneumo < 61) {
+            vacEmDiaDisplay.push('PNEUMO 10')
+        }
+    }
+    //meningo c
+    if(meningoAux == 1){
+        if (isNaN(meningoDateLastDose) == true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (meningoTest == false){
+        alert('Vacina Pentavalente é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (meningoTest == 1){
+        vacEmDiaDisplay.push('MENINGO C')
+    } else if (meningoTest == 2){
+        vacPorFazerDisplay.push('MENINGO C')
+    } else if (meningoTest == 3){
+        vacPerdidaDisplay.push('MENINGO C')
+    } else if (meningoTest == 4){
+        if(lastDosedifMeningo>= 61){
+            vacPorFazerDisplay.push('MENINGO C')
+        } else if (lastDosedifMeningo < 61) {
+            vacEmDiaDisplay.push('MENINGO C')
+        }
+    }    
 
     // meningo acwy
 
