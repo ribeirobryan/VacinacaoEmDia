@@ -150,20 +150,21 @@ main{
 .auxiliarWrapper{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
-#datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv
+
+#datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo
 {
     height: 20px;
     width: 150px;
     border-radius: 10px;
     text-align: center;
 }
-#datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover, #dateHpv:hover
+#datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover, #dateHpv:hover, #datePneumo:hover
 {
     transform: none;
 }
-#pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton
+#pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton
 {
         height: 20px;
         width: 100px;
@@ -174,7 +175,7 @@ main{
         border: none;
         background:rgba(var(--secondColor),0.60);
 }
-#pentaButton:hover, #dtpButton:hover, #vipButton:hover, #vopButton:hover, #hpvButton:hover
+#pentaButton:hover, #dtpButton:hover, #vipButton:hover, #vopButton:hover, #hpvButton:hover, #pneumoButton:hover
 {
         background-color: rgba(var(--secondColor),0.2);
         cursor: pointer;
@@ -272,11 +273,11 @@ input[type="radio"]:hover{
     align-self: center;
     align-items: center;
     width: 90vw;
-    gap: 25px;
+    gap: 12px;
     border: 1px solid black;
     border-radius: 15px;
     margin-bottom: 2vw;
-    padding: 15px;
+    padding: 10px;
     background-color: rgb(var(--mainColor),0.6);
     box-shadow: 0 0 10px 2px black;
 }
@@ -290,13 +291,14 @@ input[type="radio"]:hover{
 }
 .vacItem span{
     display: flex;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
     border: 1px solid black;
     box-shadow: inset 0 0 10px 2px black;
     border-radius: 50px;
-    padding: 5px 15px;
+    padding: 3px 15px;
     background: rgb(var(--secondColor),0.4);
+    white-space: nowrap;
 }
 .tonextpage {
     position: fixed;
@@ -335,3 +337,4 @@ input[type="radio"]:hover{
     color: rgb(170, 170, 170);
     transform: scale(1.2);
 }
+
