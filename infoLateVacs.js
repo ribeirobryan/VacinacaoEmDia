@@ -113,7 +113,8 @@ document.getElementsByName('dtp').forEach(inpdtp =>{
         dtpButton.addEventListener('click', dtpButtonClick =>{
             dtpDateLastDose = (new Date(dateDtp.value))
             dtpDateLastDoseDif = ((dateNow - dtpDateLastDose)/(1000*3600*24))
-            console.log(dtpDateLastDoseDif)
+            
+            console.log(idadePaciente - dtpDateLastDoseDif)
             if (isNaN(dtpDateLastDose) == false){
                 dateDtp.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
             } else {
@@ -293,29 +294,29 @@ document.getElementsByName('rotavirus').forEach(inprota =>{
             case "rotavirusd1":
                 console.log("dose 1")
                 if (idadePaciente < 122) {
-                    hpvTest = 1
-                    dateHpvSpan.classList.add("active")
-                    hpvAux = 0
+                    rotaTest = 1
+                    dateRotaSpan.classList.add("active")
+                    rotaAux = 0
                 } else if (idadePaciente >= 122 && idadePaciente <= 242) {
-                    hpvTest = 4
-                    dateHpvSpan.classList.remove("active")
-                    hpvAux = 1
+                    rotaTest = 4
+                    dateRotaSpan.classList.remove("active")
+                    rotaAux = 1
                 } else if (idadePaciente > 242) {
-                    hpvTest = 3
-                    dateHpvSpan.classList.add("active")
-                    hpvAux = 0
+                    rotaTest = 3
+                    dateRotaSpan.classList.add("active")
+                    rotaAux = 0
                 }
                 break;
             case "rotavirusnd":
                 console.log("nenhuma dose")
-                dateHpvSpan.classList.add('active')
-                hpvAux = 0
+                dateRotaSpan.classList.add('active')
+                rotaAux = 0
                 if (idadePaciente < 61){
-                    hpvTest = 1
+                    rotaTest = 1
                 } else if (idadePaciente >= 61 && idadePaciente <= 106) {
-                    hpvTest = 2
+                    rotaTest = 2
                 } else if (idadePaciente > 106) {
-                    hpvTest = 3
+                    rotaTest = 3
                 }
                 break;    
         }
@@ -444,15 +445,15 @@ document.getElementsByName('meningoc').forEach(inpmeningo =>{
                 meningoAux = 0
                 break;    
             case 'meningocd2':
-                if (idadePaciente >= 365){
+                if (idadePaciente > 1825){
                     meningoTest = 3
                     dateMeningoSpan.classList.add('active')
                     meningoAux = 0
-                } else if (idadePaciente < 365 && idadePaciente >= 183){
+                } else if (idadePaciente <= 1825 && idadePaciente >= 365){
                     meningoTest = 4
                     dateMeningoSpan.classList.remove('active')
                     meningoAux = 1
-                } else if (idadePaciente < 183){
+                } else if (idadePaciente < 365){
                     meningoTest = 1
                     dateMeningoSpan.classList.add('active')
                     meningoAux = 0
@@ -514,7 +515,7 @@ document.getElementsByName('meningoacwy').forEach(inpacwy =>{
     } )
 } )
 
-// febre amarela // em desenvolvimento
+// febre amarela // em teste
 
 let dateFebreASpan = document.getElementById('dateFebreAmarelaSpan')
 let dateFebreA = document.getElementById('dateFebreAmarela')
@@ -523,12 +524,20 @@ let lastDosedifFebreA
 let febreADateLastDose
 let febreATest = false
 let febreAAux = 0
+let febreADoseIdadeAux
 document.getElementsByName('febreamarela').forEach(inpfebrea =>{
     inpfebrea.addEventListener('change', inpfebreaTest =>{
         febreAButton.addEventListener('click', febreaSubmit=>{
             febreADateLastDose = new Date(dateFebreA.value)
             lastDosedifFebreA = ((dateNow - febreADateLastDose)/(1000*3600*24))
             console.log((dateNow - febreADateLastDose)/(1000*3600*24))
+            if ((idadePaciente - lastDosedifFebreA) <= 1826){
+                febreADoseIdadeAux = 0
+                console.log("menor ou igual a 5 anos")
+            } else {
+                febreADoseIdadeAux = 1
+                console.log("mais de 5 anos")
+            }
             if (isNaN(febreADateLastDose) == false){
                 dateFebreA.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
             } else {
@@ -548,26 +557,37 @@ document.getElementsByName('febreamarela').forEach(inpfebrea =>{
                     febreATest = 1
                     dateFebreASpan.classList.add('active')
                     febreAAux = 0
-                } else if (idadePaciente > 1461 && idadePaciente < 1825){
-                    febreATest = 4
+                } else if (idadePaciente > 1461 && idadePaciente <= 1825) {
+                        febreATest = 2
+                        dateFebreASpan.classList.add('active')
+                        febreAAux = 0
+                } else {
                     dateFebreASpan.classList.remove('active')
                     febreAAux = 1
-                } else if (idadePaciente >= 1825 && idadePaciente < 21915){
-                    console.log('em desenvolvimento')
-                    //ainda falta coisa
-                } else if (idadePaciente >= 21915){
-
+                    if (febreADoseIdadeAux == 0){
+                        if (idadePaciente >= 21915){
+                            febreATest = 3
+                        } else if (idadePaciente < 21915){
+                            febreATest = 2
+                        } 
+                    } else if (febreADoseIdadeAux == 1){
+                        febreATest = 1
+                    }
                 }
                 break;    
             case 'febreamareland':
-                dateMeningoSpan.classList.add('active')
-                meningoAux = 0
-            if (idadePaciente >= 365){
-                meningoTest = 3
-            } else if (idadePaciente < 365 && idadePaciente >= 61){
-                meningoTest = 2
-            } else if (idadePaciente < 61){
-                meningoTest = 1
+            if (idadePaciente > 21915){
+                febreATest = 3
+                dateFebreASpan.classList.add('active')
+                febreAAux = 0
+            } else if (idadePaciente <= 21915 && idadePaciente >= 274){
+                febreATest = 2
+                dateFebreASpan.classList.add('active')
+                febreAAux = 0
+            } else if (idadePaciente < 274){
+                febreATest = 1
+                dateFebreASpan.classList.add('active')
+                febreAAux = 0
             }
                 break;    
                                     
@@ -586,11 +606,11 @@ document.getElementsByName('hepatitea').forEach(inphepatitea =>{
                 break;
             case 'hepatiteand':
                 if (idadePaciente < 457){
-                    hpvTest = 1
+                    hepatiteaTest = 1
                 } else if (idadePaciente >= 457 && idadePaciente <= 1825){
-                    hpvTest = 2
+                    hepatiteaTest = 2
                 } else if (idadePaciente > 1825){
-                    hpvTest = 3
+                    hepatiteaTest = 3
                 }
                 break;    
         }
@@ -840,7 +860,7 @@ buttonSub.addEventListener('click', submitButton =>{
             testIfChecked = false
     }}
     if (rotaTest == false){
-        alert('Vacina  é de preenchimento obrigatório')
+        alert('Vacina Rotavírus é de preenchimento obrigatório')
         window.location.reload();
         testIfChecked = false
     } else if (rotaTest == 1){
@@ -890,7 +910,7 @@ buttonSub.addEventListener('click', submitButton =>{
             testIfChecked = false
     }}
     if (meningoTest == false){
-        alert('Vacina Pentavalente é de preenchimento obrigatório')
+        alert('Vacina Menmingo C é de preenchimento obrigatório')
         window.location.reload();
         testIfChecked = false
     } else if (meningoTest == 1){
@@ -921,7 +941,25 @@ buttonSub.addEventListener('click', submitButton =>{
         vacPerdidaDisplay.push('MENINGO ACWY')
     }
 
-    
+    // febre amarela teste 
+
+    if (febreATest == false){
+        alert('Vacina Febre Amarela é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (febreATest == 1){
+        vacEmDiaDisplay.push('FEBRE AMARELA')
+    } else if (febreATest == 2){
+        vacPorFazerDisplay.push('FEBRE AMARELA')
+    } else if (febreATest == 3){
+        let febreAconf = confirm("O paciente possui mais de 60 anos, é necessário laudo médico para a aplicação da vacina de Febre Amarela")
+        if (febreAconf === true){
+            vacPorFazerDisplay.push('FEBRE AMARELA')
+        } else {
+            vacPerdidaDisplay.push('FEBRE AMARELA')
+        }
+    }
+
     //hepatite a test
 
     if (hepatiteaTest == false){
@@ -970,17 +1008,3 @@ buttonSub.addEventListener('click', submitButton =>{
         window.document.location = ("page3.html")
     }
 })
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
