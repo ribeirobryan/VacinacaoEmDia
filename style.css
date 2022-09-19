@@ -37,7 +37,6 @@ main{
     align-items: center;
     width: 100vw;
     min-height: 100vh;
-    gap: 2.5vw;
     background:linear-gradient(180deg, rgba(100,203,234,1) 0%, rgb(147, 203, 233) 100%);
     color: white;
 }
@@ -56,6 +55,7 @@ main{
     justify-content: space-evenly;
     align-items: center;
     margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
     width: 90vw;
     height: 7vh;
     background: blue;
@@ -446,7 +446,6 @@ input[type="radio"]:hover{
         font-size: 0.8em;
     }
     .vacItem{
-        gap: 15px;
         flex-direction: column;
         align-self: center;
     }
@@ -457,11 +456,12 @@ input[type="radio"]:hover{
     {
         font-size: 1em;
         width: 150px;
-        height: 25px;
+        height: 30px;
+        border-radius: 15px;
     }
     #pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton{
         width: 150px;
-        height: 25px;
+        height: 30px;
         font-size: 1em;
     }
     input[type="radio"]{
@@ -477,7 +477,8 @@ input[type="radio"]:hover{
         gap: 10px;
         padding: 3px 10px;
         width: 150px;
-        height: 25px;
+        height: 30px;
+        margin: 5px;
     }
     .auxiliarWrapper{
         gap: 10px;
