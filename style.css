@@ -152,13 +152,17 @@ main{
     align-items: center;
     gap: 10px;
 }
-
+.auxiliarWrapper p {
+    width: fit-content;
+    white-space: nowrap;
+}
 #datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo
 {
     height: 20px;
     width: 150px;
     border-radius: 10px;
     text-align: center;
+
 }
 #datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover, #dateHpv:hover, #datePneumo:hover
 {
@@ -273,7 +277,7 @@ input[type="radio"]:hover{
     align-self: center;
     align-items: center;
     width: 90vw;
-    gap: 12px;
+    gap: 10px;
     border: 1px solid black;
     border-radius: 15px;
     margin-bottom: 2vw;
@@ -317,8 +321,7 @@ input[type="radio"]:hover{
 .subbtn{
     width: 30vw;
     max-width: 450px;
-    height: 10vmin;
-    max-height: 75px;
+    height: 75px;
     border: none;
     border-radius:15vw;
     font-weight: 500;
@@ -329,7 +332,7 @@ input[type="radio"]:hover{
     box-shadow: inset 0 0 5px black;
     color: grey;
     transition: all 0.5s ease;
-    
+
 }
 .subbtn:hover{
     background-color: rgba(var(--secondColor),0.2);
@@ -338,3 +341,155 @@ input[type="radio"]:hover{
     transform: scale(1.2);
 }
 
+@media(max-width:1600px){
+    .vacTitle{
+        font-size: 1.2em;
+    }
+    .vacItem{
+        font-size: 1em;
+        gap: 15px;
+    }
+    .auxiliarWrapper p {
+        font-size: 0.8em;
+        
+    }
+}
+@media(max-width:1300px){
+    .display{
+        font-size: 1.5em;
+    }
+    .vacTitle{
+        font-size: 1em;
+    }
+    .vacItem{
+        gap: 10px;
+    }
+    .vacItem span {
+        font-size: 0.8em;
+        padding: 3px 10px;
+    }
+    #datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo
+    {
+        font-size: 0.7em;
+        width: 100px;
+        
+    }
+    #pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton{
+        width: 60px;
+        font-size: 0.7em;
+    }
+    input[type="radio"]{
+        width: 14px;
+        height: 14px;
+    }
+    input[type="radio"]::before{
+        width: 8px;
+        height: 8px;
+    }
+    .auxiliarWrapper p {
+        font-size: 0.8em;
+        width: min-content;
+    }
+}
+@media(max-width:768px){
+    .display{
+        font-size: 1.3em;
+    }
+    .vacItem{
+        gap: 5px;
+    }
+    .vacTitle{
+        font-size: 1em;
+    }
+    #datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo
+    {
+        font-size: 0.5em;
+        width: 80px;
+        height: 15px;
+    }
+    #pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton{
+        width: 60px;
+        height: 15px;
+        font-size: 0.6em;
+    }
+    input[type="radio"]{
+        width: 10px;
+        height: 10px;
+    }
+    input[type="radio"]::before{
+        width: 6px;
+        height: 6px;
+    }
+    .vacItem span{
+        font-size: 0.6em;
+        gap: 5px;
+        padding: 2px 5px;
+    }
+    .auxiliarWrapper{
+        gap: 5px;
+    }
+    .auxiliarWrapper p {
+        font-size: 0.6em;
+    }
+    .subbtn{
+        width: 200px;
+        height: 50px;        
+        font-size: 2em;
+    }
+}
+@media(max-width:425px){
+    .info-header{
+        height: 30px;
+        padding: 10px;
+    }
+    .display{
+        font-size: 0.8em;
+    }
+    .vacItem{
+        gap: 15px;
+        flex-direction: column;
+        align-self: center;
+    }
+    .vacTitle{
+        font-size: 1.3em;
+    }
+    #datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo
+    {
+        font-size: 1em;
+        width: 150px;
+        height: 25px;
+    }
+    #pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton{
+        width: 150px;
+        height: 25px;
+        font-size: 1em;
+    }
+    input[type="radio"]{
+        width: 20px;
+        height: 20px;
+    }
+    input[type="radio"]::before{
+        width: 12px;
+        height: 12px;
+    }
+    .vacItem span{
+        font-size: 1em;
+        gap: 10px;
+        padding: 3px 10px;
+        width: 150px;
+        height: 25px;
+    }
+    .auxiliarWrapper{
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .auxiliarWrapper p {
+        font-size: 1em;
+    }
+    .subbtn{
+        width: 200px;
+        height: 50px;        
+        font-size: 2em;
+    }
+}
