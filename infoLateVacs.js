@@ -1,5 +1,5 @@
-let localPage = document.location.href.slice(-10)//test if its in the index page, if so it clears the localStorage
-if ( localPage == 'index.html'){
+let localPage = document.location.href.slice(-10)//test if its in the page 1, if so it clears the localStorage
+if ( localPage == 'page1.html'){
     localStorage.clear()
     /*alert('Versão Pré-Alpha')
     alert('Esta página está atualmente em fase de desenvolvimento e não substitui (e nunca substituirá) o auxilio de um profissional')
