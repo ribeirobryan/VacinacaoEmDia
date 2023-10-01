@@ -98,10 +98,18 @@
                     <abbr title="">
                         <p class="vacTitle">HEPATITE B:</p>
                     </abbr>
-                    <span><input type="radio" name="hepatitebref" id="hepatitebrefnd" disabled>NENHUMA DOSE</input></span>
-                    <span><input type="radio" name="hepatitebref" id="hepatitebrefd1" disabled>DOSE 1</input></span>
-                    <span><input type="radio" name="hepatitebref" id="hepatitebrefd2" disabled>DOSE 2</input></span>
-                    <span><input type="radio" name="hepatitebref" id="hepatitebrefd3" disabled>DOSE 3</input></span>
+                    <span><input type="radio" name="hepatitebref" id="hepatitebrefnd">NENHUMA DOSE</input></span>
+                    <span><input type="radio" name="hepatitebref" id="hepatitebrefd1">DOSE 1</input></span>
+                    <span><input type="radio" name="hepatitebref" id="hepatitebrefd2">DOSE 2</input></span>
+                    <span><input type="radio" name="hepatitebref" id="hepatitebrefd3">DOSE 3</input></span>
+                    <div id="dateHepatiteBRefSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateHepatiteB">
+                            <button id="HepatiteBButton">ENVIAR</button>
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="vacItem"><!-- Rotavírus-->
                     <abbr title="Vacina para rotavirus">
@@ -160,6 +168,12 @@
                     </abbr>
                     <span><input type="radio" name="tripliceviral" id="tripliceviralnd">NENHUMA DOSE</span>
                     <span><input type="radio" name="tripliceviral" id="tripliceviraldu">DOSE ÚNICA</span>
+                    <div id="dateTripliceviralSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateTripliceviral" required>
+                            <button id="tripliceviralButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="vacItem"><!--Tetraviral-->
                     <abbr title="Vacina contra sarampo, caxumba, rubéola e varicela">
@@ -167,6 +181,12 @@
                     </abbr>
                     <span><input type="radio" name="tetraviral" id="tetraviralnd">NENHUMA DOSE</span>
                     <span><input type="radio" name="tetraviral" id="tetraviraldu">DOSE ÚNICA</span>
+                    <div id="dateTetraviralSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateTetraviral" required>
+                            <button id="tetraviralButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="vacItem"><!--Varicela-->
                     <abbr title="Vacina varicela (catapora)">
@@ -174,7 +194,12 @@
                     </abbr>
                     <span><input type="radio" name="varicela" id="variceland">NENHUMA DOSE</span>
                     <span><input type="radio" name="varicela" id="varicelar">REFORÇO</span>
-
+                    <div id="dateVaricelaSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateVaricela" required>
+                            <button id="varicelaButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="vacItem"><!--dT-->
                     <abbr title="Vacina dupla bacteriana do tipo adulto contra difteria e tétano">
@@ -184,6 +209,12 @@
                     <span><input type="radio" name="dt" id="dtd1">DOSE 1</span>
                     <span><input type="radio" name="dt" id="dtd2">DOSE 2</span>
                     <span><input type="radio" name="dt" id="dtd3">DOSE 3</span>
+                    <div id="dateDtSpan" class="active">
+                        <div class="auxiliarWrapper">
+                            <p>ULTIMA DOSE:</p><input type="date" id="dateDt" required>
+                            <button id="dtButton">ENVIAR</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="vacItem"><!--Febre Amarela-->
                     <abbr title="Vacina contra febra amarela">
@@ -224,13 +255,6 @@
                     <button class="subbtn" id="vacFormSubmit" type="submit">Enviar</button>
                 </div>
             </div>
-            <div class="submit-list">
-                <a href="page3.html"><button type="submit" class="nav-btn tonextpage">AVANÇAR</button></a>
-            </div>
-        </main>
-        <footer>
-            <a href="page1.html"><button class="nav-btn topreviouspage">VOLTAR</button></a>
-        </footer>
     </div>
     <div id="modal" class="active">
         <p id="modalHeader">Informações</p>

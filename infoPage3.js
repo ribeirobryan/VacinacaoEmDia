@@ -30,8 +30,12 @@ let ved = document.getElementById('ved')
 let vnf = document.getElementById('vnf')
 let vpd = document.getElementById('vpd')
 
-subbtn2.addEventListener('click', subbtnclick =>{
-    ved.innerText = storedVacsEmDia
-    vnf.innerText = storedVacsPorFazer
-    vpd.innerText = storedVacsPerdidas
+
+ved.innerText = storedVacsEmDia
+vnf.innerText = storedVacsPorFazer
+vpd.innerText = storedVacsPerdidas
+
+
+document.getElementById('restartButton').addEventListener('click',restartButton =>{
+    window.open('page1.html','_self')
 })

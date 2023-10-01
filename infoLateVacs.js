@@ -16,7 +16,7 @@ document.getElementsByName('bcg').forEach(inpbcg =>{
         if (inpbcg.id == 'bcgdu'){
             bcgTest = 1 // vacina em dia
         } else if (inpbcg.id == 'bcgnd' &&  idadePaciente <= 1825 ) {
-            bcgTest = 2 // vacina atrasada
+            bcgTest = 2 // vacina por fazer
         } else if (inpbcg.id == 'bcgnd' &&  idadePaciente > 1825){
             bcgTest = 3 // vacina perdida
         }
@@ -49,6 +49,7 @@ let lastDosedif
 let pentaDateLastDose
 let pentaTest = false
 let pentaaux = 0
+let pentaHistorico = 0
 document.getElementsByName('pentavalente').forEach(inppenta =>{
     inppenta.addEventListener('change', inppentaTest =>{
         pentaButton.addEventListener('click', pentaSubmit=>{
@@ -67,34 +68,42 @@ document.getElementsByName('pentavalente').forEach(inppenta =>{
             pentaTest = 1
             datePentaSpan.classList.remove('active')
             pentaaux = 1
+            pentaHistorico = 1
         } else if (inppenta.id != 'pvd3' && idadePaciente > 2555){
             pentaTest = 3
             datePentaSpan.classList.add('active')
             pentaaux = 0
+            pentaHistorico = 0
         } else if (inppenta.id == 'pvd2' && idadePaciente <= 2555 && idadePaciente > 183) { // se idade entre 6meses e 7 anos
             datePentaSpan.classList.remove('active')
             pentaaux = 1
             pentaTest = 2
+            pentaHistorico = 0
         } else if (inppenta.id == 'pvd2' && idadePaciente <= 183){
             pentaTest = 1
             datePentaSpan.classList.add('active')
             pentaaux = 0
+            pentaHistorico = 0
         } else if (inppenta.id == 'pvd1' && idadePaciente <= 2555 && idadePaciente > 122){
             datePentaSpan.classList.remove('active')
             pentaaux = 1
             pentaTest = 2
+            pentaHistorico = 0
         } else if (inppenta.id == 'pvd1' && idadePaciente <= 122){
             pentaTest = 1
             datePentaSpan.classList.add('active')
             pentaaux = 0
+            pentaHistorico = 0
         } else if (inppenta.id == 'pvnd' && idadePaciente <= 2555 && idadePaciente > 61){
             datePentaSpan.classList.add('active')
             pentaaux = 0
             pentaTest = 4
+            pentaHistorico = 0
         } else if (inppenta.id == 'pvnd' && idadePaciente <= 61){
             datePentaSpan.classList.add('active')
             pentaaux = 0
             pentaTest = 1
+            pentaHistorico = 0
         }
     } )
 } )
@@ -107,6 +116,7 @@ let dtpDateLastDose
 let dtpDateLastDoseDif
 let dtpTest = false
 let dtpAux = 0
+let dtpHistorico = 0
 
 document.getElementsByName('dtp').forEach(inpdtp =>{
     inpdtp.addEventListener('change', inpdtpTest =>{
@@ -127,26 +137,32 @@ document.getElementsByName('dtp').forEach(inpdtp =>{
             dtpTest = 1
             dateDtpSpan.classList.add('active')
             dtpAux = 0
+            dtpHistorico = 1
         } else if (inpdtp.id != 'dtpd2' && idadePaciente > 2555){
             dtpTest = 3
             dateDtpSpan.classList.add('active')
             dtpAux = 0
+            dtpHistorico = 0
         } else if (inpdtp.id == 'dtpd1' && idadePaciente <= 2555 && idadePaciente > 1461){
             dtpTest = 4
             dateDtpSpan.classList.remove('active')
             dtpAux = 1
+            dtpHistorico = 0
         } else if (inpdtp.id == 'dtpd1' && idadePaciente <= 1461) {
             dtpTest = 1
             dateDtpSpan.classList.add('active')
             dtpAux = 0
+            dtpHistorico = 0
         } else if (inpdtp.id == 'dtpnd' && idadePaciente <= 2555 && idadePaciente > 457){
             dtpTest = 2
             dateDtpSpan.classList.add('active')
             dtpAux = 0
+            dtpHistorico = 0
         } else if (inpdtp.id == 'dtpnd' && idadePaciente <= 457){
             dtpTest = 1
             dateDtpSpan.classList.add('active')
             dtpAux = 0
+            dtpHistorico = 0
         }
     })
 })
@@ -261,6 +277,78 @@ document.getElementsByName('vop').forEach(inpvop =>{
         }
     })
 })
+
+//hepatite b reforço
+let dateHepatiteBRefSpan = document.getElementById('dateHepatiteBRefSpan')
+let dateHepatiteBRef = document.getElementById('dateHepatiteB')
+let hepatiteBButton = document.getElementById('HepatiteBButton')
+let lastDosedifHepatiteB
+let hepatiteBDateLastDose
+let hepatiteBTest = false
+let hepatiteBAux = 0
+
+document.getElementsByName('hepatitebref').forEach(inpHepbRef=>{
+    inpHepbRef.addEventListener('change', inpHepbRefTest =>{
+        hepatiteBButton.addEventListener('click', hepBSubmit=>{
+            hepatiteBDateLastDose = new Date(dateHepatiteBRef.value)
+            lastDosedifHepatiteB = ((dateNow - hepatiteBDateLastDose)/(1000*3600*24))
+            console.log(lastDosedifHepatiteB)
+            if (isNaN( hepatiteBDateLastDose) == false){
+                dateHepatiteBRef.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateHepatiteBRef.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+
+
+        //hepatiteBTest = 1 em dia // = 2 por fazer// = 3 teste de data de dose 2 // = 4 teste de data de dose 1
+        switch (inpHepbRef.id){
+            case "hepatitebrefd3":
+                console.log("dose 3")
+                hepatiteBTest = 1
+                dateHepatiteBRefSpan.classList.add('active')
+                hepatiteBAux = 0
+                break;
+            case "hepatitebrefd2":
+                console.log("dose 2")
+                hepatiteBTest = 3
+                dateHepatiteBRefSpan.classList.remove('active')
+                hepatiteBAux = 1
+                break;
+            case "hepatitebrefd1":
+                console.log("dose 1")
+                hepatiteBTest = 4
+                dateHepatiteBRefSpan.classList.remove('active')
+                hepatiteBAux = 1
+                break;
+            case "hepatitebrefnd":
+                console.log(pentaHistorico)
+                if (pentaHistorico == 1){
+                    hepatiteBTest = 1
+                    dateHepatiteBRefSpan.classList.add('active')
+                    hepatiteBAux = 0
+                } else if (pentaHistorico == 0){
+                    if (idadePaciente > 2555){
+                        hepatiteBTest = 2
+                        dateHepatiteBRefSpan.classList.add('active')
+                        hepatiteBAux = 0
+                    }
+                    else if (idadePaciente <= 2555){
+                        hepatiteBTest = 1
+                        dateHepatiteBRefSpan.classList.add('active')
+                        hepatiteBAux = 0
+                    }
+                }
+                break;
+        }
+    })
+})
+
+
+
+
 
 let dateRotaSpan = document.getElementById('dateRotaSpan')
 let dateRota = document.getElementById('dateRota')
@@ -514,6 +602,223 @@ document.getElementsByName('meningoacwy').forEach(inpacwy =>{
         }
     } )
 } )
+
+let dateTripliceviralSpan = document.getElementById('dateTripliceviralSpan')
+let dateTripliceviral = document.getElementById('dateTripliceviral')
+let tripliceviralButton = document.getElementById('tripliceviralButton')
+let tripliceviralDateLastDose
+let tripliceviralDateLastDoseDif
+let tripliceviralTest = false
+let tripliceviralAux = 0
+let tripliceviralTomou = 0
+
+document.getElementsByName('tripliceviral').forEach(inpTripliceviral =>{
+    inpTripliceviral.addEventListener('change', inpTripliceviralTest =>{
+        tripliceviralButton.addEventListener('click', tripliceviralSubmit =>{
+            tripliceviralDateLastDose = new Date(dateTripliceviral.value)
+            tripliceviralDateLastDoseDif = ((dateNow - tripliceviralDateLastDose)/(1000*3600*24))
+            console.log(tripliceviralDateLastDoseDif)
+            if(isNaN(tripliceviralDateLastDose) == false){
+                dateTripliceviral.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateTripliceviral.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+
+        //tripliceviralTest = 1 em dia // = 2 por fazer // = 3 perdida
+
+        switch (inpTripliceviral.id) {
+            case "tripliceviraldu":
+                console.log(inpTripliceviral.id)
+                tripliceviralTest = 1
+                dateTripliceviralSpan.classList.remove('active')
+                tripliceviralAux = 1
+                tripliceviralTomou = 1
+                break;
+            case "tripliceviralnd":
+                console.log(inpTripliceviral.id)
+                dateTripliceviralSpan.classList.add('active')
+                tripliceviralAux = 0
+                tripliceviralTomou = 0
+                if (idadePaciente < 365) {
+                    tripliceviralTest = 1
+                } else if (idadePaciente >= 362 && idadePaciente <=10952){
+                    tripliceviralTest = 2
+                } else if (idadePaciente > 10952){
+                    tripliceviralTest = 3
+                }
+                break;
+        }
+    })
+})
+
+//vacina tetraviral
+
+let dateTetraviralSpan = document.getElementById('dateTetraviralSpan')
+let dateTetraviral = document.getElementById('dateTetraviral')
+let tetraviralButton = document.getElementById('tetraviralButton')
+let tetraviralDateLastDose
+let tetraviralDateLastDoseDif
+let tetraviralTest = false
+let tetraviralAux = 0
+let tetraviralTomou = 0
+
+document.getElementsByName('tetraviral').forEach(inpTetraviral =>{
+    inpTetraviral.addEventListener('change', inpTetraviralTest => {
+        tetraviralButton.addEventListener('click', tetraviralSubmit =>{
+            tetraviralDateLastDose = new Date(dateTetraviral.value)
+            tetraviralDateLastDoseDif = ((dateNow - tetraviralDateLastDose)/(1000*3600*24))
+            console.log(tetraviralDateLastDoseDif)
+            if (isNaN(tetraviralDateLastDose) == false){
+                dateTetraviral.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateTetraviral.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+
+        switch(inpTetraviral.id){
+            
+            case 'tetraviraldu':
+                console.log(inpTetraviral.id)
+                tetraviralTest = 1
+                dateTetraviralSpan.classList.remove('active')
+                tetraviralAux = 1
+                tetraviralTomou = 1
+                break;
+            case 'tetraviralnd':
+                console.log(inpTetraviral.id)
+                dateTetraviralSpan.classList.add('active')
+                tetraviralAux = 0
+                tetraviralTomou = 0
+                if (idadePaciente < 456){
+                    tetraviralTest = 1
+                } else if (idadePaciente >= 456 && idadePaciente <= 1825 ){
+                    tetraviralTest = 2
+                } else if (idadePaciente > 1825){
+                    tetraviralTest = 3
+                }
+                break;
+        }
+    })
+})
+
+//vacina varicela ]
+
+let dateVaricelaSpan = document.getElementById('dateVaricelaSpan')
+let dateVaricela = document.getElementById('dateVaricela')
+let varicelaButton = document.getElementById('varicelaButton')
+let varicelaDateLastDose
+let varicelaDateLastDoseDif
+let varicelaTest = false
+let varicelaAux = 0
+
+document.getElementsByName('varicela').forEach(inpVaricela =>{
+    inpVaricela.addEventListener('change', inpVaricelaTest =>{
+        varicelaButton.addEventListener('click', varicelaSubmit =>{
+            varicelaDateLastDose = new Date(dateVaricela.value)
+            varicelaDateLastDoseDif = ((dateNow - varicelaDateLastDose)/(1000*3600*24))
+            console.log(varicelaDateLastDoseDif)
+            if (isNaN(varicelaDateLastDose) == false){
+                dateVaricela.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateVaricela.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+
+        switch (inpVaricela.id){
+            case 'varicelar':
+                console.log(inpVaricela.id)
+                varicelaTest = 1
+                break;
+            case 'variceland':
+                console.log(inpVaricela.id)
+                if (idadePaciente < 1461){
+                    varicelaTest = 1
+                } else if (idadePaciente >= 1461 && idadePaciente <= 2555 ){
+                    varicelaTest = 2
+                } else if (idadePaciente > 2555 ){
+                    varicelaTest = 3
+                }
+                break;
+        }
+    })
+})
+
+// vacina dT
+
+let dateDtSpan = document.getElementById('dateDtSpan')
+let dateDt = document.getElementById('dateDt')
+let dtButton = document.getElementById('dtButton')
+let dtDateLastDose
+let dtDateLastDoseDif
+let dtTest = false
+let dtAux = 0
+
+document.getElementsByName('dt').forEach(inpDt=>{
+    inpDt.addEventListener('change', inpDtTest =>{
+        dtButton.addEventListener('click', dtSubmit=>{
+            dtDateLastDose = new Date(dateDt.value)
+            dtDateLastDoseDif = ((dateNow - dtDateLastDose)/(1000*3600*24))
+            console.log(dtDateLastDoseDif)
+            if(isNaN(dtDateLastDose) == false){
+                dateDt.style.boxShadow = "0 0 4px green, inset 0 0 4px green"
+            } else {
+                dateDt.style.boxShadow = "0 0 4px red, inset 0 0 4px red";
+                alert('Inválido')
+                testIfChecked = false
+            }
+        })
+
+        //DT Test = 1 em dia // = 2 por fazer// = 3 teste de data de dose
+
+        switch (inpDt.id){
+            case "dtd3":
+                console.log("dose 3")
+                dtTest = 1
+                dateDtSpan.classList.add('active')
+                dtAux = 0
+                break;
+            case "dtd2":
+                console.log("dose 2")
+                dtTest = 3
+                dateDtSpan.classList.remove('active')
+                dtAux = 1
+                break;
+            case "dtd1":
+                console.log("dose 1")
+                dtTest = 3
+                dateDtSpan.classList.remove('active')
+                dtAux = 1
+                break;
+            case "dtnd":
+                console.log("nenhuma dose")
+                if (pentaHistorico == 1 && dtpHistorico == 1){
+                    dtTest = 1
+                    dateDtSpan.classList.add('active')
+                    dtAux = 0
+                } else {
+                    if (idadePaciente > 2555){
+                        dtTest = 2
+                        dateDtSpan.classList.add('active')
+                        dtAux = 0
+                    }
+                    else if (idadePaciente <= 2555){
+                        dtTest = 1
+                        dateDtSpan.classList.add('active')
+                        dtAux = 0
+                    }
+                }
+                break;
+        }
+
+    })
+})
 
 // febre amarela // em teste
 
@@ -851,6 +1156,140 @@ buttonSub.addEventListener('click', submitButton =>{
         }
     }
 
+    //triplice viral teste
+
+    if (tripliceviralAux == 1){
+        if (isNaN(tripliceviralDateLastDose) == true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (tripliceviralTest == false){
+        alert('Vacina tríplice viral é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (tripliceviralTest == 1){
+        vacEmDiaDisplay.push('TRÍPLICE VIRAL')
+    } else if (tripliceviralTest == 2){
+        vacPorFazerDisplay.push('TRÍPLICE VIRAL')
+    } else if (tripliceviralTest == 3){
+        vacPerdidaDisplay.push('TRÍPLICE VIRAL')
+    }
+
+    //tetraviral teste
+
+    if (tetraviralAux == 1){
+        if (isNaN(tetraviralDateLastDose) == true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (tetraviralTest == false){
+        alert('Vacina tetra viral é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (tetraviralTest == 1){
+        vacEmDiaDisplay.push('TETRA VIRAL')
+    } else if (tetraviralTest == 2){
+        if (tripliceviralTomou == 0){
+            vacEmDiaDisplay.push('TETRA VIRAL')
+        } else if (tripliceviralTomou == 1){
+            if (tripliceviralDateLastDoseDif >= 30){
+                vacPorFazerDisplay.push('TETRA VIRAL')
+            } else if (tripliceviralDateLastDoseDif < 30){
+                vacEmDiaDisplay.push('TETRA VIRAL')
+            }
+        }
+    } else if (tetraviralTest == 3){
+        vacPerdidaDisplay.push('TETRA VIRAL')
+    }
+
+    //varicela teste
+
+    if (varicelaAux == 1){
+        if (isNaN(varicelaDateLastDose)== true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (varicelaTest == false){
+        alert('Vacina Varicela é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (varicelaTest == 1 ){
+        vacEmDiaDisplay.push('VARICELA')
+    } else if (varicelaTest == 2 ){
+        if (tetraviralTomou == 0){
+            vacEmDiaDisplay.push('VARICELA')
+        } else if (tetraviralTomou == 1){
+            if (tetraviralDateLastDoseDif >= 90){
+                vacPorFazerDisplay.push('VARICELA')
+            } else if (tetraviralDateLastDoseDif < 90){
+                vacEmDiaDisplay.push('VARICELA')
+            }
+        }
+    } else if (varicelaTest == 3 ){
+        vacPerdidaDisplay.push('VARICELA')
+    }
+
+
+    //dT teste
+
+    if (dtAux == 1){
+        if (isNaN(dtDateLastDose) == true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (dtTest == false){
+        alert('Vacina dT é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (dtTest == 1){
+        vacEmDiaDisplay.push('dT')
+    } else if (dtTest == 2){
+        vacPorFazerDisplay.push('dT')
+    } else if (dtTest == 3){
+        if (dtDateLastDoseDif >= 30){
+            vacPorFazerDisplay.push('dT')
+        } else if (dtDateLastDoseDif < 30){
+            vacEmDiaDisplay.push('dT')
+        }
+    }
+ 
+    //hepatite b reforço teste
+
+    if (hepatiteBAux == 1){
+        if (isNaN(hepatiteBDateLastDose) == true){
+            alert('Data da ultima dose é de preenchimento obrigatório')
+            window.location.reload();
+            testIfChecked = false
+    }}
+    if (hepatiteBTest == false){
+        alert('Vacina Hepatite B reforço é de preenchimento obrigatório')
+        window.location.reload();
+        testIfChecked = false
+    } else if (hepatiteBTest == 1){
+        vacEmDiaDisplay.push('HEPATITE B REFORÇO')
+    }else if(hepatiteBTest == 2){
+        vacPorFazerDisplay.push('HEPATITE B REFORÇO')
+    } else if (hepatiteBTest == 3){
+        if (lastDosedifHepatiteB >= 152){// fazem mais de 5 meses q tomou
+            vacPorFazerDisplay.push('HEPATITE B REFORÇO')
+        } else if (lastDosedifHepatiteB < 152) { // fazem menos de 5 meses q tomou
+            vacEmDiaDisplay.push('HEPATITE B REFORÇO')
+        }
+    } else if (hepatiteBTest == 4){
+        if (lastDosedifHepatiteB >= 30){// fazem mais de 30 dias q tomou
+            vacPorFazerDisplay.push('HEPATITE B REFORÇO')
+        } else if (lastDosedifHepatiteB < 30) { // fazem menos de 30 dias q tomou
+            vacEmDiaDisplay.push('HEPATITE B REFORÇO')
+        }
+    }
+
+
+
+
     //rotavirus teste
 
     if(rotaAux == 1){
@@ -940,6 +1379,8 @@ buttonSub.addEventListener('click', submitButton =>{
     } else if (meningoacwyTest == 3){
         vacPerdidaDisplay.push('MENINGO ACWY')
     }
+
+
 
     // febre amarela teste 
 

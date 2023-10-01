@@ -32,6 +32,22 @@ main{
     height: max-content;
     width: 100vw;
 }
+#goToMain{
+    position: absolute;
+    background: transparent;
+    background-image: url(images/leftArrowBlue.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    height: 50px;
+    width: 50px;
+    transition: all 0.2s linear;
+}
+#goToMain:hover{
+    transform: scale(1.1);
+    background-image: url(images/leftArrowBlueHover.png);
+    cursor: pointer;
+}
 #page2{
     flex-direction: column;
     align-items: center;
@@ -115,11 +131,13 @@ main{
     justify-content: center;
     align-items: center;
 }
-#description h1{
+#description-title{
     width: 25vw;
     max-width: 230px;
     text-align: center;
     text-shadow: 1px 1px 1px black;
+    color: white;
+    cursor: pointer;
 }
 #description p{
     max-width: 20vw;
@@ -155,7 +173,7 @@ main{
     width: fit-content;
     white-space: nowrap;
 }
-#datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo
+#datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo, #dateHepatiteB, #dateDt, #dateTripliceviral, #dateTetraviral, #dateVaricela
 {
     height: 20px;
     width: 150px;
@@ -163,11 +181,11 @@ main{
     text-align: center;
 
 }
-#datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover, #dateHpv:hover, #datePneumo:hover
+#datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover, #dateHpv:hover, #datePneumo:hover, #dateHepatiteB:hover, #dateDt:hover, #dateTripliceviral:hover, #dateTetraviral:hover, #dateVaricela:hover
 {
     transform: none;
 }
-#pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton
+#pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton, #HepatiteBButton, #dtButton, #tripliceviralButton, #tetraviralButton , #varicelaButton
 {
         height: 20px;
         width: 100px;
@@ -178,7 +196,7 @@ main{
         border: none;
         background:rgba(var(--secondColor),0.60);
 }
-#pentaButton:hover, #dtpButton:hover, #vipButton:hover, #vopButton:hover, #hpvButton:hover, #pneumoButton:hover
+#pentaButton:hover, #dtpButton:hover, #vipButton:hover, #vopButton:hover, #hpvButton:hover, #pneumoButton:hover, #HepatiteBButton:hover, #dtButton:hover, #tripliceviralButton:hover, #tetraviralButton:hover , #varicelaButton:hover
 {
         background-color: rgba(var(--secondColor),0.2);
         cursor: pointer;
