@@ -834,8 +834,9 @@ document.getElementsByName('febreamarela').forEach(inpfebrea =>{
     inpfebrea.addEventListener('change', inpfebreaTest =>{
         febreAButton.addEventListener('click', febreaSubmit=>{
             febreADateLastDose = new Date(dateFebreA.value)
+            console.log(febreADateLastDose)
             lastDosedifFebreA = ((dateNow - febreADateLastDose)/(1000*3600*24))
-            console.log((dateNow - febreADateLastDose)/(1000*3600*24))
+            console.log(lastDosedifFebreA)
             if ((idadePaciente - lastDosedifFebreA) <= 1826){
                 febreADoseIdadeAux = 0
                 console.log("menor ou igual a 5 anos")
@@ -869,15 +870,7 @@ document.getElementsByName('febreamarela').forEach(inpfebrea =>{
                 } else {
                     dateFebreASpan.classList.remove('active')
                     febreAAux = 1
-                    if (febreADoseIdadeAux == 0){
-                        if (idadePaciente >= 21915){
-                            febreATest = 3
-                        } else if (idadePaciente < 21915){
-                            febreATest = 2
-                        } 
-                    } else if (febreADoseIdadeAux == 1){
-                        febreATest = 1
-                    }
+                    febreATest = 4
                 }
                 break;    
             case 'febreamareland':
@@ -1391,7 +1384,11 @@ buttonSub.addEventListener('click', submitButton =>{
     } else if (febreATest == 1){
         vacEmDiaDisplay.push('FEBRE AMARELA')
     } else if (febreATest == 2){
-        vacPorFazerDisplay.push('FEBRE AMARELA')
+        if(lastDosedifFebreA >= 30){
+            vacPorFazerDisplay.push('FEBRE AMARELA')
+        } else {
+            vacEmDiaDisplay.push('FEBRE AMARELA')
+        }
     } else if (febreATest == 3){
         let febreAconf = confirm("O paciente possui mais de 60 anos, é necessário laudo médico para a aplicação da vacina de Febre Amarela")
         if (febreAconf === true){
@@ -1399,6 +1396,27 @@ buttonSub.addEventListener('click', submitButton =>{
         } else {
             vacPerdidaDisplay.push('FEBRE AMARELA')
         }
+    } else if (febreATest == 4) {
+        if (febreADoseIdadeAux == 0){
+            if(idadePaciente>= 21915){
+                let febreAconf = confirm("O paciente possui mais de 60 anos, é necessário laudo médico para a aplicação da vacina de Febre Amarela")
+                if (febreAconf === true){
+                    vacPorFazerDisplay.push('FEBRE AMARELA')
+                } else {
+                    vacPerdidaDisplay.push('FEBRE AMARELA')
+                }
+            } else if (idadePaciente < 21915){
+                if(lastDosedifFebreA >= 30){
+                    vacPorFazerDisplay.push('FEBRE AMARELA')
+                } else {
+                    vacEmDiaDisplay.push('FEBRE AMARELA')
+                }
+            }
+        } else if (febreADoseIdadeAux == 1) {
+
+            vacEmDiaDisplay.push('FEBRE AMARELA')
+
+        } 
     }
 
     //hepatite a test
