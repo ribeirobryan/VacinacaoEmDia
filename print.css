@@ -1,0 +1,6 @@
+#restartButton, #printButton{
+    display: none;
+}
+.aviso{
+    display: initial;
+}

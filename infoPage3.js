@@ -3,6 +3,9 @@ let displaySex2 = document.getElementById('displaySexo2')
 
 let storageSexo2 = localStorage.getItem("storSexo")
 
+let i = 0
+let vacHolder
+
 if (storageSexo2 !== 'undefined'){
     displaySex2.innerHTML = storageSexo2
 }
@@ -22,18 +25,32 @@ if (storageDay2 !== null && storageMonth2 !== null && storageYear2 !== null){
 
 let subbtn2 = document.getElementById('vacFormSubmit2')
 
-let storedVacsEmDia = localStorage.getItem('vacsEmDia')
-let storedVacsPorFazer = localStorage.getItem('vacsPorFazer')
-let storedVacsPerdidas = localStorage.getItem('vacsPerdidas')
+let storedVacsEmDia = localStorage.getItem('vacsEmDia').split(",")
+let storedVacsPorFazer = localStorage.getItem('vacsPorFazer').split(",")
+let storedVacsPerdidas = localStorage.getItem('vacsPerdidas').split(",")
 
 let ved = document.getElementById('ved')
 let vnf = document.getElementById('vnf')
 let vpd = document.getElementById('vpd')
 
+for(i = 0; i < storedVacsEmDia.length; i++){
+    vacHolder = document.createElement('div')
+    vacHolder.innerHTML = "&#10148; "+ storedVacsEmDia[i]
+    ved.appendChild(vacHolder)
+}
 
-ved.innerText = storedVacsEmDia
-vnf.innerText = storedVacsPorFazer
-vpd.innerText = storedVacsPerdidas
+for(i = 0; i < storedVacsPorFazer.length; i++){
+    vacHolder = document.createElement('div')
+    vacHolder.innerHTML = "&#10148; "+ storedVacsPorFazer[i]
+    vnf.appendChild(vacHolder)
+}
+
+for(i = 0; i < storedVacsPerdidas.length; i++){
+    vacHolder = document.createElement("div")
+    vacHolder.innerHTML = "&#10148; "+ storedVacsPerdidas[i]
+    vpd.appendChild(vacHolder)
+}
+
 
 
 document.getElementById('restartButton').addEventListener('click',restartButton =>{
