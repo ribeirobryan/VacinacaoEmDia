@@ -442,31 +442,16 @@ document.getElementsByName('pneumo10').forEach(inppneumo =>{
                 datePneumoSpan.classList.add('active')
                 pneumoAux = 0
                 break;    
-            case 'pneumo10d3':
-                if (idadePaciente > 1825){
+            case 'pneumo10d2':
+                if (idadePaciente >= 1825){
                     pneumoTest = 3
                     datePneumoSpan.classList.add('active')
                     pneumoAux = 0
-                } else if (idadePaciente <= 1825 && idadePaciente >= 365){
+                } else if (idadePaciente < 1825 && idadePaciente >= 365){
                     pneumoTest = 4
                     datePneumoSpan.classList.remove('active')
                     pneumoAux = 1
                 } else if (idadePaciente < 365){
-                    pneumoTest = 1
-                    datePneumoSpan.classList.add('active')
-                    pneumoAux = 0
-                }
-                break;
-            case 'pneumo10d2':
-                if (idadePaciente >= 365){
-                    pneumoTest = 3
-                    datePneumoSpan.classList.add('active')
-                    pneumoAux = 0
-                } else if (idadePaciente < 365 && idadePaciente >= 183){
-                    pneumoTest = 4
-                    datePneumoSpan.classList.remove('active')
-                    pneumoAux = 1
-                } else if (idadePaciente < 183){
                     pneumoTest = 1
                     datePneumoSpan.classList.add('active')
                     pneumoAux = 0
