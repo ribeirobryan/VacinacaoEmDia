@@ -208,8 +208,8 @@ document.getElementsByName('vip').forEach(inpvip =>{
             dateVipSpan.classList.add('active')
             vipaux = 0
         } else if (inpvip.id == 'vipd1' && idadePaciente <= 1825 && idadePaciente > 122){
-            dateVipSpan.classList.remove('active')
-            vipaux = 1
+            dateVipSpan.classList.add('active')
+            vipaux = 0
             vipTest = 2
         } else if (inpvip.id == 'vipd1' && idadePaciente <= 122){
             vipTest = 1
