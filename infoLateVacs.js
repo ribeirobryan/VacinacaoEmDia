@@ -208,8 +208,8 @@ document.getElementsByName('vip').forEach(inpvip =>{
             dateVipSpan.classList.add('active')
             vipaux = 0
         } else if (inpvip.id == 'vipd1' && idadePaciente <= 1825 && idadePaciente > 122){
-            dateVipSpan.classList.add('active')
-            vipaux = 0
+            dateVipSpan.classList.remove('active')
+            vipaux = 1
             vipTest = 2
         } else if (inpvip.id == 'vipd1' && idadePaciente <= 122){
             vipTest = 1
@@ -850,8 +850,8 @@ document.getElementsByName('febreamarela').forEach(inpfebrea =>{
                     febreAAux = 0
                 } else if (idadePaciente > 1461 && idadePaciente <= 1825) {
                         febreATest = 2
-                        dateFebreASpan.classList.add('active')
-                        febreAAux = 0
+                        dateFebreASpan.classList.remove('active')
+                        febreAAux = 1
                 } else {
                     dateFebreASpan.classList.remove('active')
                     febreAAux = 1

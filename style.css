@@ -152,7 +152,7 @@ main{
     width: fit-content;
     white-space: nowrap;
 }
-#datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo, #dateHepatiteB, #dateDt, #dateTripliceviral, #dateTetraviral, #dateVaricela,#dateFebreAmarela
+#datePenta, #dateDtp, #dateVip, #dateVop, #dateHpv,#datePneumo, #dateHepatiteB, #dateDt, #dateTripliceviral, #dateTetraviral, #dateVaricela,#dateFebreAmarela,#dateRota,#dateMeningo
 {
     height: 20px;
     width: 150px;
@@ -160,11 +160,11 @@ main{
     text-align: center;
 
 }
-#datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover, #dateHpv:hover, #datePneumo:hover, #dateHepatiteB:hover, #dateDt:hover, #dateTripliceviral:hover, #dateTetraviral:hover, #dateVaricela:hover, #dateFebreAmarela:hover
+#datePenta:hover, #dateDtp:hover, #dateVip:hover, #dateVop:hover, #dateHpv:hover, #datePneumo:hover, #dateHepatiteB:hover, #dateDt:hover, #dateTripliceviral:hover, #dateTetraviral:hover, #dateVaricela:hover, #dateFebreAmarela:hover, #dateRota:hover, #dateMeningo:hover
 {
     transform: none;
 }
-#pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton, #HepatiteBButton, #dtButton, #tripliceviralButton, #tetraviralButton , #varicelaButton,#febreAmarelaButton
+#pentaButton, #dtpButton, #vipButton, #vopButton, #hpvButton, #pneumoButton, #HepatiteBButton, #dtButton, #tripliceviralButton, #tetraviralButton , #varicelaButton,#febreAmarelaButton, #rotaButton, #meningoButton
 {
         height: 20px;
         width: 100px;
@@ -175,7 +175,7 @@ main{
         border: none;
         background:rgba(var(--secondColor),0.60);
 }
-#pentaButton:hover, #dtpButton:hover, #vipButton:hover, #vopButton:hover, #hpvButton:hover, #pneumoButton:hover, #HepatiteBButton:hover, #dtButton:hover, #tripliceviralButton:hover, #tetraviralButton:hover , #varicelaButton:hover, #febreAmarelaButton:hover
+#pentaButton:hover, #dtpButton:hover, #vipButton:hover, #vopButton:hover, #hpvButton:hover, #pneumoButton:hover, #HepatiteBButton:hover, #dtButton:hover, #tripliceviralButton:hover, #tetraviralButton:hover , #varicelaButton:hover, #febreAmarelaButton:hover, #rotaButton:hover, #meningoButton:hover
 {
         background-color: rgba(var(--secondColor),0.2);
         cursor: pointer;
