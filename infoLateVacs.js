@@ -948,11 +948,11 @@ document.getElementsByName('hpv').forEach(inphpv =>{
                     }
                 } else if (sexoPaciente == "FEMININO") {
                     console.log("f")
-                    if (idadePaciente < 4018) {
+                    if (idadePaciente < 3287) {
                         hpvTest = false
                         alert("Inválido")
                         inphpv.checked = false
-                    } else if (idadePaciente >= 4018) {
+                    } else if (idadePaciente >= 3287) {
                         hpvTest = 4
                         dateHpvSpan.classList.remove("active")
                         hpvAux = 1
@@ -973,9 +973,9 @@ document.getElementsByName('hpv').forEach(inphpv =>{
                     }
                 } else if (sexoPaciente == "FEMININO") {
                     console.log("f")
-                    if (idadePaciente < 4018){
+                    if (idadePaciente < 3287){
                         hpvTest = 1
-                    } else if (idadePaciente >= 4018 && idadePaciente <= 5477) {
+                    } else if (idadePaciente >= 3287 && idadePaciente <= 5477) {
                         hpvTest = 2
                     } else if (idadePaciente > 5477) {
                         hpvTest = 3
