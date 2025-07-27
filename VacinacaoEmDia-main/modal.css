@@ -1,0 +1,66 @@
+.active{
+    display: none;
+}
+:root{
+    --mainColor: 24, 29, 92;
+    --secondColor: 230, 236, 240;
+}
+#modal{
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgb(var(--mainColor),0.6);
+    border-radius: 10px;
+    width: 50vw;
+    height: auto;
+    background-color: white;
+    box-shadow: 0 0 1px 100vmax rgba(0, 0, 0, 0.40);
+}
+#modalCloser{
+    position: absolute;
+    right: 7px;
+    top: 4px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+#modalCloser:hover{
+    transform: scale(1.1);
+}
+#modalName{
+    margin: 5px 5px 5px 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#modalHeader{
+    background: rgb(var(--mainColor),0.6);
+    padding: 5px;
+    border-top-left-radius: inherit;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+#modalInfo{
+    margin: 5px 5px 5px 10px;
+    margin-bottom: 40px;
+}
+#modalLink{
+    cursor: pointer;
+    margin: 5px;
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    background: rgb(var(--mainColor),0.6);
+    border: 0px;
+    color: white;
+    padding: 2px;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+#modalLink:hover{
+    background: rgb(var(--mainColor));
+}

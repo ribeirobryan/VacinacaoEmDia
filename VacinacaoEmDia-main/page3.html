@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylePage3.css">
+    <link rel="stylesheet" type="text/css" href="print.css" media="print" />
+    <title>Vacinação em Dia</title>
+</head>
+<body>
+    <div class="wrapper">
+        <main id="page3">
+            <div class="infoHeader">
+                <div class="display dnascimento-display">
+                    <p>IDADE:</p>
+                    <span id="displayNasc2">
+                        <p>X ANOS, XX MESES E XX DIAS</p>
+                    </span>
+                </div>
+                <div class="display sexo-display">
+                    <p>SEXO:</p>
+                    <span id="displaySexo2">
+                        <p>X</p>
+                    </span>
+                </div>
+            </div>
+            <div class="infoContent">
+
+                <div class="vacsResults">
+                    <div class="vacs">
+                        <p class="vacsResultsTitles">VACINAS EM DIA:</p>
+                        <span class="vacsResultsItems" id="ved"></span>
+                    </div>
+                    <div class="vacs">
+                        <p class="vacsResultsTitles">VACINAS POR FAZER:</p>
+                        <span class="vacsResultsItems" id="vnf"></span>
+                    </div>
+                    <div class="vacs">
+                        <p class="vacsResultsTitles">VACINAS PERDIDAS:</p>
+                        <span class="vacsResultsItems" id="vpd"></span>
+                    </div>
+                </div>
+
+                <div class="btnDiv">
+                    <button class="subbtn" id="restartButton">REINICIAR</button>
+                    <button id="printButton" onclick="window.print();">&nbsp;</button>    
+                </div>
+                <p class="aviso">AVISO: Este serviço não substitui o auxilio de um profissional.</p>
+        </div>  
+        </main>
+    </div>
+    <script src="info.js"></script>
+    <script src="infoLateVacs.js"></script>
+    <script src="infoPage3.js"></script>
+</body>
+</html>

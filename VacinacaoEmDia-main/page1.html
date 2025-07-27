@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Vacinação em Dia</title>
+</head>
+<body>
+    <div class="wrapper">
+        <main>
+            <a href="index.html"><button id='goToMain'>&nbsp;</button></a>
+            <div class="info">
+                <div class="info-second">
+                    <div id="description">
+                        <a href="index.html">
+                            <h1 id="description-title">VACINAS EM DIA</h1>
+                        </a>
+                        <p>Seja bem-vindo ao projeto Vacinas em Dia criado pela enfermeira Michele Kroll Bujes.</p>
+                    </div>
+                    <div id="inputs">
+                        <h2><strong>INICIAR CONSULTA</strong></h2>
+                        <div class="info-dnascimento">
+                            <p>DATA DE NASCIMENTO</p>
+                            <input type="date" name="info-inpnascimento" id="info-inpnascimento">
+                        </div>
+                        <div class="info-sexo">
+                            <p>SEXO</p>
+                            <div class="infoSexoItem">
+                                <input type="radio" name="info-inpsexo" id="info-inpsexo1">
+                                <p>MASCULINO</p>
+                            </div>
+                            <div class="infoSexoItem">
+                                <input type="radio" name="info-inpsexo" id="info-inpsexo2">
+                                <p>FEMININO</p>
+                            </div>
+                        </div>
+                        <div class="info-submit">
+                            <button id="submit-btn" type="submit">ENVIAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="modal.js"></script>
+    <script src="info.js"></script>
+    <script src="infoLateVacs.js"></script>
+</body>
+</html>
